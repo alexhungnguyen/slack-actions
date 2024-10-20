@@ -4,8 +4,8 @@ inputs:
   environment:
     description: 'The target environment for the build'
     required: true
-  exit_status:
-    description: 'Exit status of the build (0 for success, non-zero for failure)'
+  job_status:
+    description: 'Exit status of the build (success, failure)'
     required: true
   commit_message:
     description: 'The commit message associated with the build'
