@@ -1,43 +1,18 @@
-name: 'Slack Notification'
-description: 'Send build notifications to Slack'
+name: 'Comfortable Slack Notification'
+description: 'Send build status notifications to Slack'
 inputs:
-  slack_webhook_url:
-    description: 'Slack webhook URL'
-    required: true
   environment:
-    description: 'Deployment environment'
+    description: 'The target environment for the build'
     required: true
   exit_status:
-    description: 'Exit status of the build'
+    description: 'Exit status of the build (0 for success, non-zero for failure)'
     required: true
-  ci_job_name:
-    description: 'Name of the CI job'
+  commit_message:
+    description: 'The commit message associated with the build'
     required: true
-  ci_job_stage:
-    description: 'Stage of the CI job'
+  slack_webhook_url:
+    description: 'Slack webhook URL to send the notification'
     required: true
-  gitlab_user_name:
-    description: 'Name of the GitLab user'
-    required: false
-  ci_commit_ref_name:
-    description: 'Branch name'
-    required: true
-  ci_commit_message:
-    description: 'Commit message'
-    required: true
-  ci_job_url:
-    description: 'URL of the CI job'
-    required: true
-  ci_project_url:
-    description: 'URL of the CI project'
-    required: true
-  ci_pipeline_id:
-    description: 'Pipeline ID'
-    required: true
-  ci_commit_sha:
-    description: 'Commit SHA'
-    required: true
-
 runs:
   using: 'docker'
   image: 'Dockerfile'
