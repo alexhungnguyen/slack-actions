@@ -41,7 +41,7 @@ function print_slack_summary_build() {
                             },
                             {
                                 "type": "mrkdwn",
-                                "text": "*Branch:*\n${GITHUB_REF_NAME}"
+                                "text": "*Branch/Tag:*\n${GITHUB_REF_NAME}"
                             },
                             {
                                 "type": "mrkdwn",
