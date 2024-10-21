@@ -13,7 +13,7 @@ function print_slack_summary_build() {
 
   slack_msg_header=":x: *Build to ${environment} failed*"
   if [[ "${job_status}" == "${SUCCESS}" ]]; then
-    slack_msg_header=":heavy_check_mark: *Build to ${environment} succeeded*"
+    slack_msg_header=":heavy_check_mark: *Build to ${environment} succeeded in repo ${GITHUB_REPOSITORY}*"
   fi
   cat <<-SLACK
             {
