@@ -11,7 +11,7 @@ function print_slack_summary_build() {
   local commit_message="${3}"
   local slack_webhook_url="${4}"
 
-  slack_msg_header=":x: *Build to ${environment} failed*"
+  slack_msg_header=":x: *Build to ${environment} failed in repo ${GITHUB_REPOSITORY}*"
   if [[ "${job_status}" == "${SUCCESS}" ]]; then
     slack_msg_header=":heavy_check_mark: *Build to ${environment} succeeded in repo ${GITHUB_REPOSITORY}*"
   fi
