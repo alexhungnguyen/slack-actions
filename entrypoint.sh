@@ -3,6 +3,7 @@
 set -euo pipefail
 FAILURE="failure"
 SUCCESS="success"
+CANCELLED="cancelled"
 
 function print_slack_summary_build() {
   local slack_msg_header
@@ -14,6 +15,8 @@ function print_slack_summary_build() {
   slack_msg_header=":x: *Build to ${environment} failed in repo ${GITHUB_REPOSITORY}*"
   if [[ "${job_status}" == "${SUCCESS}" ]]; then
     slack_msg_header=":heavy_check_mark: *Build to ${environment} succeeded in repo ${GITHUB_REPOSITORY}*"
+  elif [[ "${job_status}" == "${CANCELLED}" ]]; then
+    exit 0
   fi
   cat <<-SLACK
             {
